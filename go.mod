@@ -1,1 +1,1 @@
-package github.com/mazznoer/imgcolors
+module github.com/mazznoer/imgcolors
