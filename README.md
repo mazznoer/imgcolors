@@ -25,3 +25,4 @@ func rand255() uint8 {
 	return uint8(rand.Intn(255))
 }
 ```
+![example output](/examples/random-colors.png "Example output")
