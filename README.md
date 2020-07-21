@@ -37,6 +37,8 @@ func randColor() color.Color {
 ```
 ![example output](/examples/horizontal.png "Example output")
 
+[Try it online](https://play.golang.org/p/7zaL_OQ4Gbf)
+
 ### Vertical
 ```go
 colors := make([]color.Color, 10)
