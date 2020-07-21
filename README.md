@@ -4,7 +4,9 @@
 
 Create image from colors
 
-## Example
+## Examples
+
+### Horizontal
 ```go
 package main
 
