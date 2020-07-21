@@ -33,3 +33,33 @@ func randColor() color.Color {
 }
 ```
 ![example output](/examples/horizontal.png "Example output")
+
+### Vertical
+```go
+colors := make([]color.Color, 10)
+
+for i := range colors {
+    colors[i] = randColor()
+}
+img := imgcolors.Vertical(colors, 45, 45*10)
+```
+![example output](/examples/vertical.png "Example output")
+
+### Square
+```go
+import "image/color/palette"
+
+img := imgcolors.Square(palette.Plan9, 900)
+```
+![example output](/examples/square.png "Example output")
+
+### Conic
+```go
+colors := make([]color.Color, 17)
+
+for i := range colors {
+    colors[i] = randColor()
+}
+img := imgcolors.Conic(colors, 800, 800)
+```
+![example output](/examples/conic.png "Example output")
