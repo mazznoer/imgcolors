@@ -68,3 +68,14 @@ for i := range colors {
 img := imgcolors.Conic(colors, 800, 800)
 ```
 ![example output](/examples/conic.png "Example output")
+
+### Radial
+```go
+colors := make([]color.Color, 13)
+
+for i := range colors {
+    colors[i] = randColor()
+}
+img := imgcolors.Radial(colors, 800, 800)
+```
+![example output](/examples/radial.png "Example output")

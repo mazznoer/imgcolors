@@ -89,6 +89,33 @@ func Conic(colors []color.Color, width, height uint) image.Image {
 	return img
 }
 
+func Radial(colors []color.Color, width, height uint) image.Image {
+	w := int(width)
+	h := int(height)
+	img := image.NewRGBA(image.Rect(0, 0, w, h))
+	cx := float64(w) / 2
+	cy := float64(h) / 2
+	r := math.Min(float64(w), float64(h)) / 2
+	n := len(colors)
+	fn := float64(n)
+
+	for y := 0; y < h; y++ {
+		for x := 0; x < w; x++ {
+			d := math.Sqrt(math.Pow(float64(x)-cx, 2) + math.Pow(float64(y)-cy, 2))
+			i := int(math.Floor(remap(d, 0, r, 0, fn)))
+			var col color.Color
+
+			if i < n {
+				col = colors[i]
+			} else {
+				col = color.Transparent
+			}
+			img.Set(x, y, col)
+		}
+	}
+	return img
+}
+
 func remap(value, a, b, c, d float64) float64 {
 	return (value-a)*((d-c)/(b-a)) + c
 }
