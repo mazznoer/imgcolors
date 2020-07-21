@@ -9,22 +9,27 @@ Create image from colors
 package main
 
 import (
-	"image/color"
-	"math/rand"
+    "image/color"
+    "math/rand"
 
-	"github.com/mazznoer/imgcolors"
+    "github.com/mazznoer/imgcolors"
 )
 
 func main() {
-	colors := make([]color.Color, 15)
-	for i := range colors {
-		colors[i] = color.RGBA{rand255(), rand255(), rand255(), 255}
-	}
-	img := imgcolors.NewImage(colors, 900, 90)
+    colors := make([]color.Color, 17)
+    for i := range colors {
+        colors[i] = randColor()
+    }
+    img := imgcolors.Horizontal(colors, 900, 70)
+    // ...
 }
 
 func rand255() uint8 {
-	return uint8(rand.Intn(255))
+    return uint8(rand.Intn(255))
+}
+
+func randColor() color.Color {
+    return color.RGBA{rand255(), rand255(), rand255(), 255}
 }
 ```
-![example output](/examples/random-colors.png "Example output")
+![example output](/examples/horizontal.png "Example output")
