@@ -9,22 +9,58 @@ Create image from colors
 package main
 
 import (
-	"image/color"
-	"math/rand"
+    "image/color"
+    "math/rand"
 
-	"github.com/mazznoer/imgcolors"
+    "github.com/mazznoer/imgcolors"
 )
 
 func main() {
-	colors := make([]color.Color, 15)
-	for i := range colors {
-		colors[i] = color.RGBA{rand255(), rand255(), rand255(), 255}
-	}
-	img := imgcolors.NewImage(colors, 900, 90)
+    colors := make([]color.Color, 17)
+
+    for i := range colors {
+        colors[i] = randColor()
+    }
+    img := imgcolors.Horizontal(colors, 900, 70)
+    // ...
 }
 
 func rand255() uint8 {
-	return uint8(rand.Intn(255))
+    return uint8(rand.Intn(255))
+}
+
+func randColor() color.Color {
+    return color.RGBA{rand255(), rand255(), rand255(), 255}
 }
 ```
-![example output](/examples/random-colors.png "Example output")
+![example output](/examples/horizontal.png "Example output")
+
+### Vertical
+```go
+colors := make([]color.Color, 10)
+
+for i := range colors {
+    colors[i] = randColor()
+}
+img := imgcolors.Vertical(colors, 45, 45*10)
+```
+![example output](/examples/vertical.png "Example output")
+
+### Square
+```go
+import "image/color/palette"
+
+img := imgcolors.Square(palette.Plan9, 900)
+```
+![example output](/examples/square.png "Example output")
+
+### Conic
+```go
+colors := make([]color.Color, 17)
+
+for i := range colors {
+    colors[i] = randColor()
+}
+img := imgcolors.Conic(colors, 800, 800)
+```
+![example output](/examples/conic.png "Example output")
