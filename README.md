@@ -1,6 +1,7 @@
 # imgcolors
 
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/mazznoer/imgcolors?tab=doc)
+[![go report](https://goreportcard.com/badge/github.com/mazznoer/imgcolors)](https://goreportcard.com/report/github.com/mazznoer/imgcolors)
 
 Create image from colors
 
