@@ -22,7 +22,6 @@ import (
 
 func main() {
     colors := make([]color.Color, 17)
-
     for i := range colors {
         colors[i] = randColor()
     }
