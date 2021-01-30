@@ -9,77 +9,80 @@
 
 Create image from colors
 
-## Examples
+```go
+import "github.com/mazznoer/imgcolors"
+```
+
+## Usage
+
+Random color generator for the examples.
+
+```go
+import "image/color"
+import "math/rand"
+
+func randomColors(n uint) []color.Color {
+    colors := make([]color.Color, n)
+    for i := range colors {
+        colors[i] = color.RGBA{uint8(rand.Intn(255)), uint8(rand.Intn(255)), uint8(rand.Intn(255)), 255}
+    }
+    return colors
+}
+```
 
 ### Horizontal
+
 ```go
-package main
-
-import (
-    "image/color"
-    "math/rand"
-
-    "github.com/mazznoer/imgcolors"
-)
-
-func main() {
-    colors := make([]color.Color, 17)
-    for i := range colors {
-        colors[i] = randColor()
-    }
-    img := imgcolors.Horizontal(colors, 900, 70)
-    // ...
-}
-
-func rand255() uint8 {
-    return uint8(rand.Intn(255))
-}
-
-func randColor() color.Color {
-    return color.RGBA{rand255(), rand255(), rand255(), 255}
-}
+img := imgcolors.Horizontal(randomColors(17), 900, 70)
 ```
-![example output](docs/images/horizontal.png)
 
-[Try it online](https://play.golang.org/p/7zaL_OQ4Gbf)
+Example output:
+
+![img](docs/images/horizontal.png)
 
 ### Vertical
-```go
-colors := make([]color.Color, 10)
 
-for i := range colors {
-    colors[i] = randColor()
-}
-img := imgcolors.Vertical(colors, 45, 45*10)
+```go
+img := imgcolors.Vertical(randomColors(10), 45, 45*10)
 ```
-![example output](docs/images/vertical.png "Example output")
+
+Example output:
+
+![img](docs/images/vertical.png)
 
 ### Square
+
 ```go
 import "image/color/palette"
 
 img := imgcolors.Square(palette.Plan9, 900)
 ```
-![example output](docs/images/square.png "Example output")
+
+Example output:
+
+![img](docs/images/square.png)
 
 ### Conic
-```go
-colors := make([]color.Color, 17)
 
-for i := range colors {
-    colors[i] = randColor()
-}
-img := imgcolors.Conic(colors, 800, 800)
+```go
+img := imgcolors.Conic(randomColors(17), 800, 800)
 ```
-![example output](docs/images/conic.png "Example output")
+
+Example output:
+
+![img](docs/images/conic.png)
 
 ### Radial
-```go
-colors := make([]color.Color, 13)
 
-for i := range colors {
-    colors[i] = randColor()
-}
-img := imgcolors.Radial(colors, 800, 800)
+```go
+img := imgcolors.Radial(randomColors(13), 800, 800)
 ```
-![example output](docs/images/radial.png "Example output")
+
+Example output:
+
+![img](docs/images/radial.png)
+
+## Playground
+
+- [Try it online](https://play.golang.org/p/pAnlE6zn04K)
+
